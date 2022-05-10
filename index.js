@@ -7,3 +7,4 @@ const svg = canvas.append('svg');
 svg.append('rect');
 svg.append('circle');
 svg.append('line');
+svg.append('path');

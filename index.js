@@ -3,7 +3,7 @@ const canvas = d3.select('.canvas');
 // append the SVG container
 const svg = canvas.append('svg')
   .attr('width', 600)
-  .attr('height', 600);
+  .attr('height', 70);
 
 // append the SVG elements to the SVG container
 svg.append('rect')

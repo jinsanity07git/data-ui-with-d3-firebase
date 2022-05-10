@@ -7,8 +7,13 @@ const svg = d3.select('svg');
 
 svg.select('rect')
   .data(data)
-  .attr('width', (d,i,n) => d.width)
-  .attr('height', d => d.height)
+  .attr('width', (d,i,n) => {
+    console.log(this)    
+    console.log(n[i])  // grab the current element  
+    d.width})
+  .attr('height', function(d){
+    console.log(this)  
+    d.height } )
   .attr('fill', d => d.fill);
 
 

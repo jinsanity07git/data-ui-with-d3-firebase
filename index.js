@@ -1,8 +1,9 @@
 // select the svg conatiner first
 const svg = d3.select('svg');
 
+//json().then()  promise : returns a call back function
 d3.json('planets.json').then(data => {
-
+  console.log(data)
   // join the data to circs
   const circs = svg.selectAll('circle')
     .data(data);

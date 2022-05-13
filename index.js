@@ -1,6 +1,6 @@
 // select the svg container first
 const svg = d3.select('.canvas')
-  .append('svg')
+  .append('svg')  // append directly
     .attr('width', 600)
     .attr('height', 600);
 
@@ -9,10 +9,11 @@ const margin = {top: 20, right: 20, bottom: 100, left: 100};
 const graphWidth = 600 - margin.left - margin.right;
 const graphHeight = 600 - margin.top - margin.bottom;
 
-const graph = svg.append('g')
+const graph = svg.append('g') //graph
   .attr('width', graphWidth)
   .attr('height', graphHeight)
   .attr('transform', `translate(${margin.left}, ${margin.top})`);
+   // template string lec105
 
 d3.json('menu.json').then(data => {
 

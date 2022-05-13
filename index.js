@@ -3,9 +3,13 @@ const svg = d3.select('svg');
 
 d3.json('menu.json').then(data => {
 
+
+  const extent = d3.extent(data, d => d.orders);
+  console.log(extent); // find the min and max
+
   const y = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.orders)])
-    .range([0, 500]);
+  .domain([0, d3.max(data, d => d.orders)])
+  .range(extent);
 
   const x = d3.scaleBand()
     .domain(data.map(item => item.name))

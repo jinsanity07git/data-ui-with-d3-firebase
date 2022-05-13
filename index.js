@@ -9,12 +9,14 @@ d3.json('menu.json').then(data => {
 
   const x = d3.scaleBand()
     .domain(data.map(item => item.name))
-    .range([0, 500])
+    .range([0, 300])
     .paddingInner(0.2)
     .paddingOuter(0.2);
-
+    
+  console.log(data.map(item => item.name));
   console.log(x('veg burger'));
   console.log(x('veg curry'));
+  console.log(x.bandwidth());
 
   // join the data to circs
   const rects = svg.selectAll('rect')
@@ -31,7 +33,7 @@ d3.json('menu.json').then(data => {
     .append('rect')
       .attr('width', x.bandwidth)
       .attr("height", d => y(d.orders))
-      .attr('fill', 'orange')
+      .attr('fill', 'gray')
       .attr('x', (d) => x(d.name));
 
 });

@@ -50,7 +50,7 @@ const update = (data) => {
   y.domain([0, d3.max(data, d => d.orders)]);
   x.domain(data.map(item => item.name));
 
-  // add attrs to rects already in the DOM
+  // add attrs to rects(current shapes) already in the DOM
   rects.attr('width', x.bandwidth)
     .attr("height", d => graphHeight - y(d.orders))
     .attr('fill', 'orange')

@@ -39,7 +39,7 @@ const yAxis = d3.axisLeft(y)
   .ticks(3)
   .tickFormat(d => d + ' orders');
 
-const t = d3.transition().duration(500);
+const t = d3.transition().duration(500); // function for transition
 
 // the update function
 const update = (data) => {
@@ -71,8 +71,8 @@ const update = (data) => {
       .attr('fill', 'orange')
       .attr('x', (d) => x(d.name))
       .attr('y', d => graphHeight)
-      .merge(rects)
-      .transition(t)
+      .merge(rects) // apply following functions to the selected rects
+      .transition(t) // pass t here
         .attr("height", d => graphHeight - y(d.orders))
         .attr('y', d => y(d.orders));
 

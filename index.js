@@ -66,13 +66,13 @@ const update = (data) => {
   rects.enter()
     .append('rect')
       .attr('width', x.bandwidth)
-      .attr("height", d => 0)
+      .attr("height", 0)                                 // starting position
       .attr('fill', 'orange')
       .attr('x', (d) => x(d.name))
-      .attr('y', d => graphHeight)
-      .transition().duration(500)
-        .attr("height", d => graphHeight - y(d.orders))
-        .attr('y', d => y(d.orders));
+      .attr('y', graphHeight)                            // starting position
+      .transition().duration(3000) 
+        .attr("height", d => graphHeight - y(d.orders)) // ending position
+        .attr('y', d => y(d.orders));                   // ending position
 
   xAxisGroup.call(xAxis);
   yAxisGroup.call(yAxis);

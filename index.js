@@ -51,9 +51,12 @@ d3.json('menu.json').then(data => {
       .attr('x', (d) => x(d.name));
 
   // create & call axes
+  console.log(x);
+  // console.log(y);
   const xAxis = d3.axisBottom(x);
   const yAxis = d3.axisLeft(y);
-
+  console.log(xAxis);
+  
   xAxisGroup.call(xAxis);
   yAxisGroup.call(yAxis);
 

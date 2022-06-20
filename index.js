@@ -21,6 +21,7 @@ graph.append('rect');
 graph.append('rect');
 graph.append('rect');
 graph.append('rect');
+graph.append('rect');
 
 // create axes groups
 const xAxisGroup = graph.append('g')
@@ -51,36 +52,36 @@ db.collection('dishes').get().then(res => {
 
   console.log(rects)
   rects.exit().remove();
+  console.log(rects)
+  // // add attrs to circs already in the DOM
+  // rects.attr('width', x.bandwidth)
+  //   .attr("height", d => graphHeight - y(d.orders))
+  //   .attr('fill', 'orange')
+  //   .attr('x', d => x(d.name))
+  //   .attr('y', d => y(d.orders));
 
-  // add attrs to circs already in the DOM
-  rects.attr('width', x.bandwidth)
-    .attr("height", d => graphHeight - y(d.orders))
-    .attr('fill', 'orange')
-    .attr('x', d => x(d.name))
-    .attr('y', d => y(d.orders));
+  // // append the enter selection to the DOM
+  // // rects.enter()
+  //   // .append('rect')
+  //     // .attr('width', x.bandwidth)
+  //     // .attr("height", d => graphHeight - y(d.orders))
+  //     // .attr('fill', 'orange')
+  //     // .attr('x', (d) => x(d.name))
+  //     // .attr('y', d => y(d.orders));
 
-  // append the enter selection to the DOM
-  rects.enter()
-    .append('rect')
-      .attr('width', x.bandwidth)
-      .attr("height", d => graphHeight - y(d.orders))
-      .attr('fill', 'orange')
-      .attr('x', (d) => x(d.name))
-      .attr('y', d => y(d.orders));
+  // // create & call axesit
+  // const xAxis = d3.axisBottom(x);
+  // const yAxis = d3.axisLeft(y)
+  //   .ticks(3)
+  //   .tickFormat(d => d + ' orders');
 
-  // create & call axesit
-  const xAxis = d3.axisBottom(x);
-  const yAxis = d3.axisLeft(y)
-    .ticks(3)
-    .tickFormat(d => d + ' orders');
+  // xAxisGroup.call(xAxis);
+  // yAxisGroup.call(yAxis);
 
-  xAxisGroup.call(xAxis);
-  yAxisGroup.call(yAxis);
-
-  xAxisGroup.selectAll('text')
-    .attr('fill', 'orange')
-    .attr('transform', 'rotate(-40)')
-    .attr('text-anchor', 'end')
+  // xAxisGroup.selectAll('text')
+  //   .attr('fill', 'orange')
+  //   .attr('transform', 'rotate(-40)')
+  //   .attr('text-anchor', 'end')
 
 });
 

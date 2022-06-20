@@ -14,15 +14,16 @@
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-firestore.js"></script>
     <script>
       // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBimZS4KHtAzEICqMyph25tUEpKA2lJ1e0",
-        authDomain: "d3-testing-nn.firebaseapp.com",
-        databaseURL: "https://d3-testing-nn.firebaseio.com",
-        projectId: "d3-testing-nn",
-        storageBucket: "d3-testing-nn.appspot.com",
-        messagingSenderId: "450687416936"
-      };
-      firebase.initializeApp(config);
+      const firebaseConfig = {
+  apiKey: "AIzaSyCJEVeAwYir_bG1cbj3s3OA_WJSDOHMt9s",
+  authDomain: "d3viz-61d22.firebaseapp.com",
+  projectId: "d3viz-61d22",
+  storageBucket: "d3viz-61d22.appspot.com",
+  messagingSenderId: "361456035089",
+  appId: "1:361456035089:web:06a04b39fc16b05b0f18b0",
+  measurementId: "G-SN1X879JX5"
+};
+      firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
       db.settings({ timestampsInSnapshots: true });
     </script>

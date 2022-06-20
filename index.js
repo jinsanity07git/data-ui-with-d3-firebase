@@ -78,22 +78,25 @@ const update = (data) => {
 
 var data = [];
 
+// You can listen to a document with the onSnapshot () method.
 db.collection('dishes').onSnapshot(res => {
   
   res.docChanges().forEach(change => {
+    console.log(change.type);
+    const doc = {...change.doc.data(), id: change.doc.id}; // ... upack key and value pair
+    console.log(doc);
 
-    const doc = {...change.doc.data(), id: change.doc.id};
-
+    // find the data change and update the data array
     switch (change.type) {
       case 'added':
         data.push(doc);
         break;
       case 'modified':
-        const index = data.findIndex(item => item.id == doc.id);
+        const index = data.findIndex(item => item.id == doc.id); // Array.prototype.findIndex() - JavaScript 
         data[index] = doc;
         break;
       case 'removed':
-        data = data.filter(item => item.id !== doc.id);
+        data = data.filter(item => item.id !== doc.id); // Array.prototype.filter() - JavaScript | MDN
         break;
       default:
         break;

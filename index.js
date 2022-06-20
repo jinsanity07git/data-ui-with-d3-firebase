@@ -43,7 +43,7 @@ const yAxis = d3.axisLeft(y)
 const update = (data) => {
 
   // join the data to circs
-  const rects = graph.selectAll('rect')
+  const rects = graph.selectAll('rect')  // select all
     .data(data);
 
   console.log(rects);

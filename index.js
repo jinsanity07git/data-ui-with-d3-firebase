@@ -39,7 +39,7 @@ const yAxis = d3.axisLeft(y)
   .ticks(3)
   .tickFormat(d => d + ' orders');
 
-const t = d3.transition().duration(500);
+const t = d3.transition().duration(4000); // used in the function: widthTween
 
 // the update function
 const update = (data) => {
@@ -66,13 +66,13 @@ const update = (data) => {
   // append the enter selection to the DOM
   rects.enter()
     .append('rect')
-      .attr('width', 0)
+      // .attr('width', 0)
       .attr("height", d => 0)
       .attr('fill', 'orange')
       .attr('x', (d) => x(d.name))
       .attr('y', d => graphHeight)
       .transition(t)
-        .attrTween('width', widthTween)
+        .attrTween('width', widthTween) //45. Tweens and Interpolation
         .attr("height", d => graphHeight - y(d.orders))
         .attr('y', d => y(d.orders));
 
@@ -113,7 +113,7 @@ db.collection('dishes').onSnapshot(res => {
 // Tweens
 const widthTween = (d) => {
   let i = d3.interpolate(0, x.bandwidth());
-  return function(t){
+  return function(t){ // t refers to the time duration of the transition
 
     return i(t);
   }

@@ -55,16 +55,16 @@ d3.json('menu.json').then(data => {
   // create & call axesit
   const xAxis = d3.axisBottom(x);
   const yAxis = d3.axisLeft(y)
-    .ticks(3)
+    .ticks(5)         // number of ticks
     .tickFormat(d => d + ' orders');
 
   xAxisGroup.call(xAxis);
   yAxisGroup.call(yAxis);
 
   xAxisGroup.selectAll('text')
-    .attr('fill', 'orange')
-    .attr('transform', 'rotate(-40)')
-    .attr('text-anchor', 'end')
+    .attr('fill', 'red')
+    .attr('transform', 'rotate(-45)')
+    .attr('text-anchor', 'end')  // text-anchor by deadult: middle of the text
 
 });
 

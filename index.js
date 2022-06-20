@@ -81,7 +81,8 @@ db.collection('dishes').get().then(res => {
   update(data);
 
   d3.interval(() => {
-    data[0].orders += 50;
+    data[2].orders *= 1.02;
+    data[1].orders *= 1.05;
     update(data)
   }, 1000);
   

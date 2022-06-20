@@ -24,7 +24,7 @@ d3.json('menu.json').then(data => {
 
   const y = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.orders)])
-    .range([graphHeight, 0]);
+    .range([graphHeight, 0]);  // swith the direction of y range
 
   const x = d3.scaleBand()
     .domain(data.map(item => item.name))
@@ -37,20 +37,22 @@ d3.json('menu.json').then(data => {
     .data(data);
 
   // add attrs to circs already in the DOM
-  rects.attr('width', x.bandwidth)
-    .attr("height", d => graphHeight - y(d.orders))
-    .attr('fill', 'orange')
-    .attr('x', d => x(d.name))
-    .attr('y', d => y(d.orders));
-
+  // rects.attr('width', x.bandwidth)
+  //   .attr("height", d => graphHeight - y(d.orders))
+  //   .attr('fill', 'red')
+  //   .attr('x', d => x(d.name))
+  //   .attr('y', d => y(d.orders)); // fit inversed y range
+ 
   // append the enter selection to the DOM
   rects.enter()
     .append('rect')
       .attr('width', x.bandwidth)
-      .attr("height", d => graphHeight - y(d.orders))
-      .attr('fill', 'orange')
-      .attr('x', (d) => x(d.name))
-      .attr('y', d => y(d.orders));
+      .attr("height", d => graphHeight - y(d.orders)) 
+      .attr('fill', 'gold')
+      .attr('x', d => console.log(d))  // test attribute api
+      .attr('x', d => x(d.name))
+      .attr('y', d => y(d.orders)  ); // fit inversed y range
+ 
 
   // create & call axes
   const xAxis = d3.axisBottom(x);

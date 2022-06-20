@@ -20,12 +20,15 @@ const xAxisGroup = graph.append('g')
 
 const yAxisGroup = graph.append('g');
 
+// steps to read from db collection 
 db.collection('dishes').get().then(res => {
 
+  console.log(res.docs);
   var data = [];
   res.docs.forEach(doc => {
     data.push(doc.data());
   });
+  console.log(data);
 
   const y = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.orders)])
